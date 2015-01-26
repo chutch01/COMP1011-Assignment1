@@ -33,7 +33,9 @@ public void fight() {
 
 //private methods
 private void generateAbilities(){
-	
+	this.strength = (int)(Math.random() * 100 +1);
+	this.speed = (int)(Math.random() * 100 +1);
+	this.health = (int)(Math.random() * 100 +1);
 }
 
 private void hitAttempt(){
