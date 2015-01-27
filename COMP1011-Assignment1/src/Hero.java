@@ -2,7 +2,7 @@
  * 
  * @author chutc_000
  * @program Description: Assignment to make a hero do some basic functions
- * @version:0.1
+ * @version:0.2
  * Assignment 1 Worth 10%
  * due Jan 30th
  * date modified: Jan 27th
@@ -62,11 +62,12 @@ private void generateAbilities(){
 private void hitAttempt(){
 	this.hit = (int)(Math.random()*100 +1);
 	
+	//if above or equal to 80, hit
 	if (hit >= 80){
 		System.out.println(this.name + " successfully hit the target!");
 		hitDamage();
 	}
-	
+	//if below 80, miss
 	if (hit < 80){
 		System.out.println(this.name + " missed!");
 	}
@@ -76,8 +77,16 @@ private void hitAttempt(){
  */
 private void hitDamage(){
 	
-	this.hitAmount = (int)(Math.random()*6 +1) * this.strength;
-	System.out.println("You hit for " + this.hitAmount + " damage!");
+	// if the roll is 100, make it a max damage hit
+	if (this.hit == 100){
+		this.hitAmount = 6 * this.strength;
+		System.out.println("Critical Hit! " + this.name +" hit for " + this.hitAmount + " damage!");
+	}
+	//run regular calculation if hit
+	else{
+		this.hitAmount = (int)(Math.random()*6 +1) * this.strength;
+		System.out.println(this.name +" hit for " + this.hitAmount + " damage!");
+	}
 
 }
 
