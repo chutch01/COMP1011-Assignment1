@@ -77,6 +77,7 @@ private void hitAttempt(){
 private void hitDamage(){
 	
 	this.hitAmount = (int)(Math.random()*6 +1) * this.strength;
+	System.out.println("You hit for " + this.hitAmount + " damage!");
 
 }
 
