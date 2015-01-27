@@ -33,7 +33,10 @@ public Hero(String name){
  */
 public void fight() {
 	
-	hitAttempt();
+	
+	if (hitAttempt() == true){
+		hitDamage();
+	}
 }
 /*
  * public method that will print out the hero's stats
@@ -78,12 +81,15 @@ private boolean hitAttempt(){
  */
 private void hitDamage(){
 	
-	// if the roll is 100, make it a max damage hit
-	if (hitAttempt()){
+	if (hit == 100){
+		System.out.println("Critical Hit!");
+		this.hitAmount = 6*this.strength;
+		System.out.println(this.name +" hit for " + this.hitAmount + " damage!");
+	}
+	else{
 		this.hitAmount = (int)(Math.random()*6 +1) * this.strength;
 		System.out.println(this.name +" hit for " + this.hitAmount + " damage!");
 	}
-
 }
 
 
