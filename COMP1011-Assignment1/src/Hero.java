@@ -59,17 +59,18 @@ private void generateAbilities(){
  * private method that will attempt to make a hit. if it does,
  * run the damage amount, if not, print a "miss" message
  */
-private void hitAttempt(){
+private boolean hitAttempt(){
 	this.hit = (int)(Math.random()*100 +1);
 	
 	//if above or equal to 80, hit
 	if (hit >= 80){
 		System.out.println(this.name + " successfully hit the target!");
-		hitDamage();
+		return true;
 	}
 	//if below 80, miss
-	if (hit < 80){
+	else{
 		System.out.println(this.name + " missed!");
+		return false;
 	}
 }
 /*
@@ -78,12 +79,7 @@ private void hitAttempt(){
 private void hitDamage(){
 	
 	// if the roll is 100, make it a max damage hit
-	if (this.hit == 100){
-		this.hitAmount = 6 * this.strength;
-		System.out.println("Critical Hit! " + this.name +" hit for " + this.hitAmount + " damage!");
-	}
-	//run regular calculation if hit
-	else{
+	if (hitAttempt()){
 		this.hitAmount = (int)(Math.random()*6 +1) * this.strength;
 		System.out.println(this.name +" hit for " + this.hitAmount + " damage!");
 	}
