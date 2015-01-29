@@ -64,7 +64,7 @@ private void generateAbilities(){
  */
 private boolean hitAttempt(){
 	this.hit = (int)(Math.random()*100 +1);
-	
+	//System.out.println(hit); HIT ROLL TEST
 	//if above or equal to 80, hit
 	if (hit >= 80){
 		System.out.println(this.name + " successfully hit the target!");
@@ -80,12 +80,13 @@ private boolean hitAttempt(){
  * private method that calculates the damage done
  */
 private void hitDamage(){
-	
+	//runs if critical
 	if (hit == 100){
 		System.out.println("Critical Hit!");
 		this.hitAmount = 6*this.strength;
 		System.out.println(this.name +" hit for " + this.hitAmount + " damage!");
 	}
+	//runs if not critical
 	else{
 		this.hitAmount = (int)(Math.random()*6 +1) * this.strength;
 		System.out.println(this.name +" hit for " + this.hitAmount + " damage!");
